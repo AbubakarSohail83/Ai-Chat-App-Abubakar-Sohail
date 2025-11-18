@@ -5,13 +5,9 @@ import { AppError } from "../errors/AppError";
 
 const JWT_SECRET = process.env.JWT_SECRET || "very secret";
 
-export async function authenticate(
-  req: Request,
-  res: Response,
-  next: NextFunction
-) {
+export async function authenticate(req: Request, res: Response, next: NextFunction) {
   const authHeader = req.headers.authorization;
-  if(!authHeader) throw new AppError("Token missing", 401);
+  if (!authHeader) throw new AppError("Token missing", 401);
 
   const [, token] = authHeader.split(" ");
   try {

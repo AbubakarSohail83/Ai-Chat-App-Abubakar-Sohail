@@ -8,7 +8,7 @@ export class SubscriptionRepository {
     const endDate = new Date();
     endDate.setMonth(startDate.getMonth() + (billingCycle === "MONTHLY" ? 1 : 12));
     return prisma.subscription.create({
-      data: { userId, tier, billingCycle, maxMessages, startDate, endDate, renewalDate: endDate }
+      data: { userId, tier, billingCycle, maxMessages, startDate, endDate, renewalDate: endDate },
     });
   }
 

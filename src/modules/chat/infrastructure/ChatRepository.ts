@@ -3,7 +3,7 @@ import prisma from "../../../shared/prisma";
 export class ChatRepository {
   async create(userId: string, question: string, answer: string, tokens: number) {
     return prisma.chatMessage.create({
-      data: { userId, question, answer, tokens }
+      data: { userId, question, answer, tokens },
     });
   }
 
